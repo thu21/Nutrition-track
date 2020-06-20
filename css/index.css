@@ -17,6 +17,9 @@ body {
 .header {
  
 }
+user_name {
+  margin: 10px; 
+}
 
 .home-header {
   height: 130px;

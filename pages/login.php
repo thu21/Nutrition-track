@@ -9,25 +9,30 @@ $mat_khau = $_POST['password'];
 $ten_dang_nhap = $_POST['username'];
 
     
-$sql="SELECT ho_ten,mat_khau,ten_dang_nhap FROM member WHERE ten_dang_nhap='$ten_dang_nhap'";
+$sql="SELECT ho_ten,mat_khau,ten_dang_nhap,id FROM member WHERE ten_dang_nhap='$ten_dang_nhap'";
+
+
 
 $result = $conn->query($sql);
 
 
 if ($result->num_rows == 0)
 {
-    echo "Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại.";
+    echo"Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại.";
     exit;
 }
 $row =mysqli_fetch_array($result, MYSQLI_ASSOC);;
 
 //$row = "SELECT mat_khau FROM member WHERE mat_khau='$mat_khau'"; 
 if ($mat_khau != $row["mat_khau"]) {
+
+
     echo "Mật khẩu không đúng. Vui lòng nhập lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
     exit;
 }
-$_SESSION['ten_dang_nhap'] = $ten_dang_nhap;
-echo "Xin chào " . $ten_dang_nhap . ". Bạn đã đăng nhập thành công. <a href='../index.php'>Tiếp tục</a>";
+$_SESSION['ten_dang_nhapt'] = $ten_dang_nhap;
+header('Location: indexUser.php');
+//echo "Xin chào " . $ten_dang_nhap . ". Bạn đã đăng nhập thành công. <a href='indexUser.php'>Tiếp tục</a>";
 die();
 }
 ?>
@@ -84,5 +89,6 @@ die();
             </form>
         </div>
     </div>
+
 </body>
 </html>

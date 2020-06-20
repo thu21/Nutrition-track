@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Thông tin dinh dưỡng</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
    
     
@@ -18,8 +18,8 @@
    
      <div class="header grid-container container-fluid" >
         <nav class="navbar navbar-expand-sm navbar-light ">
-            <a  class="navbar-brand" href="./index.php">
-            <img src="img/logo.png" alt="logo" >
+            <a  class="navbar-brand" href="../index.php">
+            <img src="../img/logo.png" alt="logo" >
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,20 +30,36 @@
               <li class="nav-item ">
                 <a class="nav-link active btn " href="#">Giới thiệu  </a>
               </li>
-              <li class="nav-item ">
-                <a class="nav-link active btn" href="./pages/login.php"> Đăng nhập  </a>
-              </li>
               <li class="nav-item">
-                <a class="nav-link  active btn " href="./pages/register.php">Đăng kí </a>
-              </li>
-            </ul>
+                <a class="nav-link active btn" href="profile.php">
+                    <div class=" d-flex ">
+                       <div style="margin-top :-10px" >
+                        <img
+                          class="rounded-circle"
+                           alt="Cinque Terre"
+                           src="../img/avatar.png"
+                           height="50px"
+                           width="50px"
+                         />
+                       </div>
+                       <div  style="margin-left :5px"><?php 
+       if (isset($_SESSION['ten_dang_nhapt']) && $_SESSION['ten_dang_nhapt']){
+           echo $_SESSION['ten_dang_nhapt']."<br/>";}?>
+                        </div>
+                    </div>
+                 </a>
+                </li>
+                <li class="nav-item ">
+                <a class="nav-link active btn " href="../index.php">Đăng xuất  </a>
+                </li>
+             </ul>
        
         </nav> 
         </div>
     <div class="home">
         <div class="home-header"></div>
         
-        <form action="./pages/result.php" method="post" class="search-pos" >
+        <form action="result.php" method="post" class="search-pos" >
             <div class="search-bar">
              <input type="text" placeholder="Tìm kiếm"  class="search"  name="searcht">
             
@@ -56,4 +72,5 @@
         </h1>
     </div>
 </body>
+
 </html>

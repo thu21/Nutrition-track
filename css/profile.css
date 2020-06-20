@@ -8,8 +8,6 @@ body {
 }
 
 .header {
-    display: flex;
-    position: fixed;
     width: 100%;
 }
 .header-img {
@@ -29,7 +27,6 @@ body {
     padding: 0px;
     opacity: 0.9;
 }
-
 .btn {
     margin-top: 25px;
     text-align: center;
@@ -39,42 +36,69 @@ body {
     width: 200px;
 }
 
-.btn:hover {
+.btn:hover{
     background-color: rgb(44, 165, 60);
     cursor: pointer;
 }
 
-.home {
-    height: 100vh;
-    width: 100%;
-}
-.home-header {
-    height: 150px;
-    width: 100%;
-}
 .infor-bar {
-    margin-left: 350px;
-    width: 50%;
-    font-size: 20px;
+    height: 250px;
+    width: 100%;
+    background-color: rgb(86, 226, 128);
+    opacity: 0.9;
+    display: flex;
 }
 .avt {
-    background-size: contain;
+    margin-left: 370px;
+}
+.infor-index{
+    margin-left: 50px;
+    width: 700px;
+}
+.body-left, .body-right{
+    background-image: url("../img/background2.png");
     background-repeat: no-repeat;
+    height: 100vh;
 }
-
-.menu {
-    margin-left: 100px;
+.body-center {
+    background-color: whitesmoke;
+    height: 900px;
 }
-.infor-btn {
-    margin-top: 25px;
+.diary, .aim {
+    font-size: 30px;
+    font-weight: bolder;
+    margin: 30px;
+    border-bottom: #0b2e13 5px solid;
+}
+.time {
+    height: 100px;
+    width: 100%;
+    background-color: #062c33;
+    color: white;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 30px;
+    font-weight: 900;
     text-align: center;
-    border: none;
-    font-size: 20px;
-    height: 60px;
-    width: 200px;
-    background-color: gainsboro;
+    margin-top: 0px;
+    display: flex;
 }
-.infor-btn:hover {
-    background-color: gray;
-    cursor: pointer;
+.time p{
+
+}
+.food-log {
+    font-size: 20px;
+    font-weight: lighter;
+    margin: 50px;
+}
+.breakfast, .lunch, .snack, .dinner {
+    margin: 30px;
+    border-bottom: #1c7430 2px solid;
+}
+.user-aim {
+    font-size: 20px;
+    font-weight: lighter;
+    margin: 75px;
+}
+.user-aim p{
+    border-bottom: #1e7e34 2px solid;
 }

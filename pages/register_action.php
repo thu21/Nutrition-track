@@ -24,7 +24,9 @@ $addmember="INSERT INTO `member` (`ho_ten`,`ten_dang_nhap` ,`mat_khau`) VALUES (
 $sql1 = $conn->query( $addmember);
 
 if ($sql1){
-echo "đăng kí thành công . <a href='userInfor.php'>Tiếp tục</a>";
+    header('Location: userInfor.php');
+//echo "đăng kí thành công . <a href='userInfor.php'>Tiếp tục</a>";
+$_SESSION['ten_dang_nhap'] = $ten_dang_nhap;
 }
 else
 echo "Có lỗi xảy ra trong quá trình đăng ký. <a href='dangky.php'>Thử lại</a>";
