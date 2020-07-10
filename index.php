@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-   
-    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 
@@ -28,7 +25,7 @@
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
              
               <li class="nav-item ">
-                <a class="nav-link active btn " href="#">Giới thiệu  </a>
+                <a class="nav-link active btn " href="./pages/about.php">Giới thiệu  </a>
               </li>
               <li class="nav-item ">
                 <a class="nav-link active btn" href="./pages/login.php"> Đăng nhập  </a>
