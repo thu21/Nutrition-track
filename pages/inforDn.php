@@ -10,6 +10,7 @@ require 'db_connection.php';
                   
                     While( $row = $result -> fetch_array()){
                         $_SESSION['Maten']=$row["Maten"];
+                       
                       
  
              ?>
@@ -19,7 +20,6 @@ require 'db_connection.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thông tin dinh dưỡng</title>
-    <!-- <link rel="stylesheet" href="C:\xampp\htdocs\Nutrition-track\css\infor.css" -->
     <link rel="stylesheet" href="../css/infor.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -44,21 +44,39 @@ require 'db_connection.php';
              
              
               <li class="nav-item ">
-              <form action="./result.php" method="post" class="search-pos" >
+              <form action="./resultDn.php" method="post" class="search-pos" >
             <div class="search-bar">
-             <input type="text" placeholder="Tìm kiếm"  class="search"  name="searcht"style="margin-left:90px" >
+             <input type="text" placeholder="Tìm kiếm"  class="search"  name="searcht" style="margin-left:90px">
             
             <button type="submit" class="search-icon">Tìm kiếm</button>
        
               </div>
             </form>
               </li>
-              
               <li class="nav-item ">
-                <a class="nav-link active btn" href="./pages/login.php"> Đăng nhập  </a>
+                <a class="nav-link active btn " href="indexUser.php">Trang chủ </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link  active btn " href="./pages/register.php">Đăng kí </a>
+              <li class="nav-item ">
+                <a class="nav-link active btn " href="profile.php"> 
+                <div class=" d-flex ">
+                       <div style="margin-top :-10px" >
+                       <img
+                          class="rounded-circle"
+                           alt="Cinque Terre"
+                           src="../img/avatar.png"
+                           height="50px"
+                           width="50px"
+                         />
+                       </div>
+                       <div  style="margin-left :5px">
+                    <?php 
+                      if (isset($_SESSION['ten_dang_nhap_2'])){
+                                   echo $_SESSION['ten_dang_nhap_2']."<br/>";} 
+                   ?>
+                        
+                        </div>
+                    </div>
+               </a>
               </li>
             </ul>
        
@@ -71,43 +89,33 @@ require 'db_connection.php';
             <div class="food-img" style="background-image: url(<?php echo $row['URL'] ?>);" >
         </div>
             <div class="food-name"><?php echo $row["Tenmon"] ?> </div>
-            
         </div><br><br>
-        <div class="addFood" style="display:flex; justify-content: center;align-items:center;">  
-            <div style="font-size: 20px; text-align:center; font-weight: 500">Thêm vào nhật ký?</div>
-            <div style="margin-left: 20px">
-                <select name="time" style="font-size: 20px; font-weight: 300, margin-left: 10px">
-                        <option value="breakfast">Bữa sáng</option>
-                        <option value="lunch">Bữa trưa</option>
-                        <option value="snack">Bữa chiều</option>
-                        <option value="dinner">Bữa tối</option>
-                </select>
-            </div>            
-        </div>
+
         <div class="infor">
             <div class="nutrition">
                 <div class="mess-title">Thông tin dinh dưỡng trong 100g</div>
                 
                 <div class="nutrition-facts">
                     <div class="calories">Giá trị dinh dưỡng </div>
-                        
+                        <div  >
                         <table class="w3-table w3-bordered w3-hoverable">
-                            <?php 
-                            echo 
-                            '<tr>'.'<td>'."Calories:".'</td>'.'<td>'. $row["Calories/100g"]." g".'</td>'.'</tr>'.
-                            '<tr>'.'<td>'."Total Fat :".'</td>'.'<td>'. $row["TotalFat(g)"] ." g".'</td>'.'</tr>'.
-                            '<tr>'.'<td>'."Cholesterol:".'</td>'.'<td>'. $row["Cholesterol(mg)"] ." mg".'</td>'.'</tr>'.
-                            '<tr>'.'<td>'."Sodium :".'</td>'.'<td>'. $row["Sodium(g)"] ." g".'</td>'.'</tr>'.
-                            '<tr>'.'<td>'."Total Carbohydrates :".'</td>'.'<td>'. $row["TotalCarbohydrates"] ." g".'</td>'.'</tr>'.
-                            '<tr>'.'<td>'. "Protein:".'</td>'.'<td>'.$row["Protein(g)"] ." g"
-                            .'</td>'.'</tr>'
-                            ?>
+                       
+                       
+                     <?php 
+                    
+                     echo 
+                     '<tr>'.'<td>'."Calories:".'</td>'.'<td>'. $row["Calories/100g"]." g".'</td>'.'</tr>'.
+                     '<tr>'.'<td>'."Total Fat :".'</td>'.'<td>'. $row["TotalFat(g)"] ." g".'</td>'.'</tr>'.
+                     '<tr>'.'<td>'."Cholesterol:".'</td>'.'<td>'. $row["Cholesterol(mg)"] ." mg".'</td>'.'</tr>'.
+                     '<tr>'.'<td>'."Sodium :".'</td>'.'<td>'. $row["Sodium(g)"] ." g".'</td>'.'</tr>'.
+                     '<tr>'.'<td>'."Total Carbohydrates :".'</td>'.'<td>'. $row["TotalCarbohydrates"] ." g".'</td>'.'</tr>'.
+                     '<tr>'.'<td>'. "Protein:".'</td>'.'<td>'.$row["Protein(g)"] ." g"
+                     .'</td>'.'</tr>'
+                              ?>
+                        
                         </table>
                       
-                    
                     </div>
-                <div class="chart">
-                    
                     
                 </div>
                 <div class="chart">
@@ -118,6 +126,7 @@ require 'db_connection.php';
             </div>
             
             <div class="activities">
+            
                 <div class="activities-title">Hoạt động cần thiết để tiêu hao 100KCal</div>
                 <table class="activities">
                 
@@ -131,16 +140,18 @@ require 'db_connection.php';
                         <th class="dohousehold-box">
                             <div class="dohousehold"></div>
                         </th>
-                    </tr>
                     <tr>
                         <td>
                             <div style="font-size: 70px; font-weight: bold;"><?php $chay=$row["Calories/100g"]/9.5;echo round($chay,2)?></div> <br>
                             <div style="font-weight: bold; font-size: 25px;">Đạp xe</div>
                         </td>
                         <td>
-                            <div style="font-size: 70px; font-weight: bold;"><?php  $dibo=$row["Calories/100g"]/3.5;
+                            <div style="font-size: 70px; font-weight: bold;">
+                            <?php  $dibo=$row["Calories/100g"]/3.5;
                                     echo round($dibo,2);
-                             ?></div> <br>
+                             ?>
+                            
+                            </div> <br>
                             <div style="font-weight: bold; font-size: 25px;">Chạy bộ</div>
                         </td>
                         <td>
@@ -154,14 +165,15 @@ require 'db_connection.php';
                 <div style="font-style: italic; font-size: 15px">Giá trị ước tính dành cho người nặng 63.5kg</div>
     
              <div class="addFood" style="display:flex; justify-content: center;align-items:center;">  
-                 <form action="login.php" method='POST'>
+                 <form action="addFood.php" method='POST'>
               <div class="mess-title">Thêm vào nhật ký?</div>
               <div style="margin-left: 20px">
                 <select style="font-size: 20px; font-weight: 300, margin-left: 10px">
-                        <option name="breakfast" value="breakfast">Bữa sáng</option>
-                        <option name="lunch" value="lunch">Bữa trưa</option>
+                        <option name="breakfast" value="breakfast">Bữa ăn</option>
+                        <!--option name="lunch" value="lunch">Bữa trưa</!--option>
                         <option name="snack" value="snack">Bữa chiều</option>
                         <option name="dinner" value="dinner">Bữa tối</option>
+                         -->
                 </select>
                 <input class=" btn-info " type="submit" value="Thêm món" style="margin-top:30px">
                
@@ -171,8 +183,6 @@ require 'db_connection.php';
             </div>
            
             <div class="chart" >
-                <p class="mess-title">Biểu Đồ</p>
-                <div id ="chart_div"></div>
                 <!--Load the AJAX API-->
                 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
      <script type="text/javascript">
@@ -204,7 +214,6 @@ require 'db_connection.php';
       }
     </script>
             </div>
-
         </div>
     </div>
     

@@ -1,11 +1,10 @@
 body {
-    
     margin: 0;
     font-family: "Opensan";
     background: url(../img/background2.png);
     background-position: center;
-     
-      
+
+
           background-size: cover;
           -webkit-background-size: cover;
           -moz-background-size: cover;
@@ -53,7 +52,7 @@ body {
 .home {
     height: 100vh;
     width: 100%;
-    
+   
 }
 .home-header {
     height: 50px;
@@ -64,7 +63,7 @@ body {
     text-shadow: 1px 1px 1px white;
     position: center;
     margin-left: 120px;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-right: 120px;
     font-size: 53px;
     text-align: center;
@@ -79,12 +78,11 @@ body {
     width: 650px;
     opacity: 0.6;
     font-size: 20px;
-    position: absolute;
+     position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin-top: 280px;
-   
+  margin-top: 200px;
 }
 
 .user-infor input[type="submit"]
@@ -95,8 +93,8 @@ body {
     border: none;
     outline: none;
     height: 40px;
-    background: #89b8da;
-    color: #fff;
+    background: navajowhite;
+    color: #111111;
     font-size: 20px;
     border-radius: 15px;
 }
@@ -104,7 +102,7 @@ body {
 {
     cursor: pointer;
     background: #58dd8d;
-    color: #000;
+    color: #111111;
 }
 .user-infor input[type="radio"]{
     margin: 5px;
@@ -113,6 +111,4 @@ body {
     margin-top: 50px;
     margin-left: 160px;
     color: black;
-    
-
 }

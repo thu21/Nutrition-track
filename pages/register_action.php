@@ -1,5 +1,4 @@
-
-    <?php
+<?php
 session_start();
 require 'db_connection.php';
 
@@ -17,18 +16,18 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0)
 {
-    echo "Tên đăng nhập này đã có người dùng. Vui lòng chọn tên đăng nhập khác. <a href='javascript: history.go(-1)'>Trở lại</a>";
+    echo "Tên đăng nhập này đã có người dùng. Vui lòng chọn tên đăng nhập khác.";
     exit;
 }
 $addmember="INSERT INTO `member` (`ho_ten`,`ten_dang_nhap` ,`mat_khau`) VALUES ('{$ho_ten}','{$ten_dang_nhap}','{$mat_khau}')";
 $sql1 = $conn->query( $addmember);
-
-if ($sql1){
+$_SESSION['ten_dang_nhap_1'] = $ten_dang_nhap;
+$_SESSION['ten_dang_nhap'] = $ho_ten;
+if ($sql1)
     header('Location: userInfor.php');
-//echo "đăng kí thành công . <a href='userInfor.php'>Tiếp tục</a>";
-$_SESSION['ten_dang_nhap'] = $ten_dang_nhap;
-}
+//echo "Quá trình đăng ký thành công. <a href='#'>Về trang chủ</a>";
 else
 echo "Có lỗi xảy ra trong quá trình đăng ký. <a href='dangky.php'>Thử lại</a>";
 ?>
-   
+</div>
+</body>
